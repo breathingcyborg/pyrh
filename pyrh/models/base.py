@@ -90,7 +90,7 @@ class BaseSchema(Schema):
             An instance of the `__model__` class.
 
         """
-        if self.__first__ is not None:
+        if self.__first__ is not None and data.get("results") is not None:
             data_list = data.get("results", [{}])
             # guard against empty return list of a valid results return
             data = data_list[0] if len(data_list) != 0 else {}
